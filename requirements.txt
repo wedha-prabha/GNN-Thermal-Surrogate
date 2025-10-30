@@ -1,0 +1,15 @@
+# Python dependencies for the high-performance GNN and Streamlit UI
+torch>=2.0.0
+torchvision
+torchaudio
+# Install PyTorch Geometric (PyG) specific to your environment/CUDA version
+torch_geometric
+h5py
+numpy
+scikit-learn
+tqdm
+# UI dependencies
+streamlit
+plotly
+matplotlib
+pandas
