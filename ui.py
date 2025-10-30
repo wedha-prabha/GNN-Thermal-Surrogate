@@ -3,6 +3,14 @@
 # Purpose: Upgraded Streamlit App for interactive GNN prediction and visualization.
 # FIX: Added 'Rate of Flow' input and made geometry parameters editable.
 # =================================================================================
+import os
+import sys
+# FIX: Explicitly add project root to path for Streamlit Cloud to find 'src' directory
+current_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(current_dir)
+sys.path.insert(0, project_root)
+# ===================================================================
+
 import streamlit as st
 import torch
 import numpy as np
@@ -13,11 +21,12 @@ from torch_geometric.data import Data
 from torch_geometric.loader import DataLoader
 from src.models.gnn_model import GlobalFeatureGNN, NODE_FEATURE_DIM, GLOBAL_FEATURE_DIM, HIDDEN_CHANNELS, NUM_LAYERS, NUM_HEADS, FINAL_HEADS
 from src.data.data_loader import FilmCoolingDataset
-import os
+# import os # Moved to top for path fix
 
 # --- CONFIGURATION ---
 MODEL_PATH = './models/best_surrogate_model.pt'
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
 
 # --- Helper Functions ---
 
