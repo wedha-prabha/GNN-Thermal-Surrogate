@@ -3,9 +3,14 @@
 # Purpose: Upgraded Streamlit App for interactive GNN prediction and visualization.
 # FIX: Added 'Rate of Flow' input and made geometry parameters editable.
 # =================================================================================
-import sys, os
-# Ensure project root is on sys.path so top-level `src` package is importable
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+import sys
+import os
+
+# Add project root to Python path (for Streamlit Cloud)
+project_root = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.abspath(os.path.join(project_root, ".."))
+if project_root not in sys.path:
+    sys.path.append(project_root)
 # ===================================================================
 
 import streamlit as st
